@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import ButtonComponent from "./components/ButtonComponent.js";
+import CounterComponent from "./components/CounterComponent.js";
 
 function App() {
   return (
     <>
-      <ButtonComponent />
+      <CounterComponent />
     </>
   );
 }
