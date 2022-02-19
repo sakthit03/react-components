@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     backgroundColor: "black",
   },
 });
-function ButtonComponent() {
+function CounterComponent() {
   let [count, setcount] = useState(0);
   let inccount = () => {
     if (count === 0 || count) {
@@ -98,4 +98,4 @@ function ButtonComponent() {
   );
 }
 
-export default ButtonComponent;
+export default CounterComponent;
