@@ -1,70 +1,59 @@
 import { useState } from "react";
 
-import Grid from "@mui/material/Grid";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 
-import { makeStyles } from "@mui/styles";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-const useStyles = makeStyles({
-  element: {
-    border: "1px  solid #BDC0C3",
-    borderRadius: "50px",
-  },
-  countfield: {
-    borderBlockColor: "black",
-  },
-  textfield: {
-    color: "#BDC0C3",
-  },
-  btn: {
-    backgroundColor: "black",
-  },
-});
 function CounterComponent() {
-  let [count, setcount] = useState(0);
-  let inccount = () => {
+  let [count, setCount] = useState(0);
+  let increase = () => {
     if (count === 0 || count) {
-      setcount(Number(count) + 1);
+      setCount(Number(count) + 1);
     }
   };
-  let deccount = () => {
+  let decrease = () => {
     if (count) {
-      setcount(count - 1);
+      setCount(count - 1);
     }
   };
-  let handleChange = (e) => {
-    setcount(e.target.value);
+  let handleChange = e => {
+    setCount(e.target.value);
   };
-  const classes = useStyles();
   return (
     <>
-      <Box width={"150px"}>
+      <Box width={"80px"}>
         <Grid
           container
+          alignItems={"center"}
           justifyContent={"space-between"}
-          className={classes.element}
-          flexWrap={"nowrap"}
-        >
-          <Grid item sx={{ width: "35px", borderRight: "1px solid #BDC0C3" }}>
+          sx={{ border: "1px  solid #BDC0C3", borderRadius: "50px" }}
+          flexWrap={"nowrap"}>
+          <Grid
+            item
+            sx={{ width: "20px", borderRight: "1px solid #BDC0C3" }}
+            container
+            alignItems={"center"}
+            justifyContent="center"
+            overflow="hidden">
             <IconButton
               variant="text"
               size="small"
               type="button"
               sx={{
                 color: "#BDC0C3",
+                padding: "5px 5px 5px 6px",
               }}
-              onClick={deccount}
-            >
-              <RemoveIcon />
+              onClick={decrease}>
+              <RemoveIcon sx={{ fontSize: "12px" }} />
             </IconButton>
           </Grid>
 
-          <Grid item sx={{ width: "80px !important" }}>
+          <Grid item sx={{ width: "40px !important" }}>
             <Grid container justifyContent={"center"}>
-              <Grid item>
+              <Grid item sx={{ lineHeight: "0px" }}>
                 <InputBase
                   type="number"
                   sx={{ input: "-webkit-inner-spin-button" }}
@@ -73,6 +62,9 @@ function CounterComponent() {
                       width: `${
                         String(count).length > 0 ? String(count).length : +1
                       }ch`,
+                      fontSize: "12px",
+                      padding: "0px",
+                      lineHeight: "0px",
                     },
                   }}
                   value={count}
@@ -81,17 +73,23 @@ function CounterComponent() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item sx={{ width: "40px", borderLeft: "1px solid #BDC0C3" }}>
+          <Grid
+            item
+            sx={{ width: "20px", borderLeft: "1px solid #BDC0C3" }}
+            container
+            alignItems={"center"}
+            justifyContent="center"
+            overflow="hidden">
             <IconButton
               size="small"
               variant="text"
               type="button"
               sx={{
                 color: "#BDC0C3",
+                padding: "5px 6px 5px 5px",
               }}
-              onClick={inccount}
-            >
-              <AddIcon />
+              onClick={increase}>
+              <AddIcon sx={{ fontSize: "12px" }} />
             </IconButton>
           </Grid>
         </Grid>
